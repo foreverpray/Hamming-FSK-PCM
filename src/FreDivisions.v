@@ -44,7 +44,7 @@ module FreDivisions(
       clkout <= 1'b0;
     end
     else begin
-      if (counterclkout == 2'b01) begin
+      if (counterclkout == 2'b01) begin //将125MHz的晶振分频为31.25Hz作为驱动主频率clkIn
         counterclkout <= 2'b00;
         clkout <= ~clkout;
       end
