@@ -11,12 +11,12 @@ reg [12:0] readytopcm;
 always @(posedge clk_character_rate or posedge reset)
 begin
     if (reset) begin
-        readytopcm <= 13'b0; // ��λʱ������?0
+        readytopcm <= 13'b0; // 复位时置为0
         PCMout <= 8'b0;
     end
     else begin
-        readytopcm[12:5] <= datain[7:0]; // �������?8λ���ݷŵ�����PCM��ǰ8λ
-        readytopcm[4:0] <= 5'b00000; // ��5λ��0
+        readytopcm[12:5] <= datain[7:0]; // 将读入的8位数据放到线性PCM的前8位
+        readytopcm[4:0] <= 5'b00000; // 后5位附0
     end
 end
 
